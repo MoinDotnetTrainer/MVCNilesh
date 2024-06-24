@@ -1,0 +1,198 @@
+﻿@using WebAppMVC_Nilesh
+@model CurdModel
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Create</title>
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <!------ Include the above in your HEAD tag ---------->
+
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.8/css/all.css">
+
+    <style type="text/css">
+        .divider-text {
+            position: relative;
+            text-align: center;
+            margin-top: 15px;
+            margin-bottom: 15px;
+        }
+
+            .divider-text span {
+                padding: 7px;
+                font-size: 12px;
+                position: relative;
+                z-index: 2;
+            }
+
+            .divider-text:after {
+                content: "";
+                position: absolute;
+                width: 100%;
+                border-bottom: 1px solid #ddd;
+                top: 55%;
+                left: 0;
+                z-index: 1;
+            }
+
+        .btn-facebook {
+            background-color: #405D9D;
+            color: #fff;
+        }
+
+        .btn-twitter {
+            background-color: #42AEEC;
+            color: #fff;
+        }
+    </style>
+</head>
+<body>
+    @using (Html.BeginForm())
+    {
+        <div class="container">
+            <div class="card bg-light">
+                <article class="card-body mx-auto" style="max-width: 400px;">
+                    <h4 class="card-title mt-3 text-center">Create Account</h4>
+                    <p class="text-center">Get started with your free account</p>
+                    <p>
+                        <a href="" class="btn btn-block btn-twitter"> <i class="fab fa-twitter"></i>   Login via Twitter</a>
+                        <a href="" class="btn btn-block btn-facebook"> <i class="fab fa-facebook-f"></i>   Login via facebook</a>
+                    </p>
+                    <p class="divider-text">
+                        <span class="bg-light">OR</span>
+                    </p>
+                  
+                        <div class="form-group input-group">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text"> <i class="fa fa-user"></i> </span>
+                            </div>
+
+                            @Html.TextBoxFor(Model => Model.Name, new { @class = "form-control", placeholder = "Full name" })
+
+                        </div> <!-- form-group// -->
+                        <div class="form-group input-group">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text"> <i class="fa fa-envelope"></i> </span>
+                            </div>
+                            @Html.TextBoxFor(Model => Model.EmailID, new { @class = "form-control", placeholder = "EmailID" })
+
+                        </div> <!-- form-group// -->
+
+                        <div class="form-group input-group">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text"> <i class="fa fa-lock"></i> </span>
+                            </div>
+                            @Html.PasswordFor(Model => Model.Password, new { @class = "form-control", placeholder = "Password" })
+
+                        </div> <!-- form-group// -->
+
+                        <div class="form-group input-group">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text"> <i class="fa fa-user"></i> </span>
+                            </div>
+
+                            @Html.EditorFor(Model => Model.DoB,
+                                     new { htmlAttributes = new { @class = "form-control", placeholder = "DoB" } })
+
+
+                        </div> <!-- form-group// -->
+
+                        <div class="form-group input-group">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text"> <i class="fa fa-user"></i> </span>
+                            </div>
+
+                            @Html.RadioButtonFor(model => model.gender, "Male", new { id = "male-true", @class = "form-control" })
+                            @Html.Label("male-true", "Male");
+                            @Html.RadioButtonFor(model => model.gender, "Female", new { id = "female-true", @class = "form-control" })
+                            @Html.Label("female-true", "Female")
+                        </div> <!-- form-group// -->
+
+                        <div class="form-group input-group">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text"> <i class="fa fa-phone"></i> </span>
+                            </div>
+
+                            @Html.DropDownListFor(Model => Model.Dept, new List<SelectListItem>
+                                {
+
+                                new SelectListItem{ Text="--select--",Value="--SelectList--"},
+                                new SelectListItem{ Text="HR",Value="HR"},
+                                new SelectListItem{ Text="IT",Value="IT"},
+                                new SelectListItem{ Text="Sales",Value="Sales"},
+                                new SelectListItem{ Text="Production",Value="Production"},
+                                },new {@class="form-control"})
+
+                              
+                        </div> <!-- form-group// -->
+
+                        <div class="form-group input-group">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text"> <i class="fa fa-envelope"></i> </span>
+                            </div>
+                            @Html.TextBoxFor(Model => Model.Salary, new { @class = "form-control", placeholder = "Salary" })
+
+                        </div> <!-- form-group// -->
+                        <div class="form-group input-group">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text"> <i class="fa fa-phone"></i> </span>
+                            </div>
+
+                            @Html.DropDownListFor(Model => Model.Status, new List<SelectListItem>
+                        {
+
+                        new SelectListItem{ Text="--select--",Value="--SelectList--"},
+                        new SelectListItem{ Text="Active",Value="true"},
+                        new SelectListItem{ Text="InActive",Value="false"}
+                        }, new { @class = "form-control" })
+
+
+                        </div> <!-- form-group// -->
+
+                        <div class="form-group input-group">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text"> <i class="fa fa-envelope"></i> </span>
+                            </div>
+                            @Html.TextAreaFor(Model => Model.Address, new { @class = "form-control", placeholder = "Address" })
+
+                        </div> <!-- form-group// -->
+                        <div class="form-group">
+                            <input type="submit" value="Create Account" name="Create Account" class="btn btn-primary btn-block" />
+                    
+                        </div> <!-- form-group// -->
+                        <p class="text-center">Have an account? <a href="">Log In</a> </p>
+         
+                </article>
+            </div> <!-- card.// -->
+
+        </div>
+        <!--container end.//-->
+
+        <br>
+        <br>
+        <article class="bg-secondary mb-3">
+            <div class="card-body text-center">
+                <h3 class="text-white mt-3">Bootstrap 4 UI KIT</h3>
+                <p class="h5 text-white">
+                    Components and templates  <br> for Ecommerce, marketplace, booking websites
+                    and product landing pages
+                </p>   <br>
+                <p>
+                    <a class="btn btn-warning" target="_blank" href="http://bootstrap-ecommerce.com/">
+                        Bootstrap-ecommerce.com
+                        <i class="fa fa-window-restore "></i>
+                    </a>
+                </p>
+            </div>
+            <br><br>
+        </article>
+    }
+</body>
+</html>

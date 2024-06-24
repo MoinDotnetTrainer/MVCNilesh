@@ -1,0 +1,43 @@
+﻿@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Sub</title>
+</head>
+<body>
+    @using (Html.BeginForm())
+    {
+        <table>
+            <tr>
+                <th>
+                    Enter X:
+                </th>
+                <td>
+                    @Html.TextBox("txt1")
+                </td>
+            </tr>
+            <tr>
+                <th>
+                    Enter Y:
+                </th>
+                <td>
+                    @Html.TextBox("txt2")
+                </td>
+            </tr>
+            <tr>
+                <th>
+                    <input type="submit" name="submit" value="submit" />
+                </th>
+                <td>
+                    @ViewData["res"]
+                </td>
+            </tr>
+        </table>
+    }
+</body>
+</html>
